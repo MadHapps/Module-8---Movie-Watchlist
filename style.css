@@ -1,0 +1,253 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body > * {
+  width: 100%;
+  padding-inline: 3px;
+}
+
+img {
+  display: block;
+  width: 15vw;
+  min-width: 100px;
+  max-width: 200px;
+  border-radius: 9px;
+}
+
+a {
+  text-decoration: none;
+  color:whitesmoke;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+header {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  padding-block: 1em;
+  align-items: center;
+  justify-content: center;
+  height: clamp(250px, 15vw, 500px);
+  margin-bottom: 2.5rem;
+  background-image: url(/images/header-bg.png);
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: darken;
+  background-size: cover;
+  background-position: 0 -40vw;
+  background-repeat: no-repeat;
+  color: whitesmoke;
+}
+
+header h1 {
+  font-size: 3rem;
+}
+
+.search {
+  --search-width: clamp(100px, 100%, 600px);
+  width: var(--search-width);
+  position: absolute;
+  display: flex;
+  bottom: -18px;
+  inset-inline: auto;
+}
+
+.search > * {
+  padding: 5px;
+  width: 25%;
+  height: 40px;
+  border: 1px solid rgba(128, 128, 128, 0.35);
+}
+
+.search > input {
+  width: inherit;
+  border-right: 0;
+  border-radius: 6px 0 0 6px;
+}
+
+.search > button {
+  cursor: pointer;
+  border-radius: 0 6px 6px 0;
+}
+
+main {
+  
+}
+
+.movie-card {
+  position: relative;
+  list-style: none;
+  padding-block: 1em;
+  display: grid;
+  grid-template-areas: 
+    "title title title title"
+    "duration genre genre watchlist"
+    "summary summary summary summary"
+  ;
+  grid-template-columns: auto minmax(auto, 75px);
+  grid-template-rows: auto ;
+  max-width: 900px;
+  margin-inline: auto;
+  background-color: rgba(245, 245, 245, 0.9);
+  background-blend-mode: lighten;
+  background-size: cover;
+  background-position: top;
+  border-radius: 4.6px;
+  padding: .25em;
+  margin-bottom: 1rem;
+}
+
+.movie-card:not(:last-of-type)::after {
+  content: '';
+  position: absolute;
+  border: 1px solid rgba(128, 128, 128, 0.35);
+  width: 95%;
+  bottom: -10px;
+  left: 2.5%;
+}
+
+.movie-card > * {
+  align-self: center;
+  justify-self: center;
+}
+
+.movie-poster {
+  display: none;
+  margin: .25rem;
+  border: 1px solid rgba(68, 68, 68, 0.562);
+}
+
+.movie-title {
+  grid-area: title;
+  align-self: end;
+  justify-self: start;
+}
+
+.movie-rating {
+  grid-area: rating;
+  font-size: 1rem;
+  margin-left: 5px;
+  vertical-align: top;
+}
+
+.movie-rating::before {
+  content: "";
+  background: url(images/star.svg);
+  background-size: cover;
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+  vertical-align: -3px;
+}
+
+.movie-duration {
+  grid-area: duration;
+}
+
+.movie-genre {
+  grid-area: genre;
+}
+
+.movie-year {
+  display: none;
+}
+
+.add-to-watchlist-btn {
+  grid-area: watchlist;
+  height: fit-content;
+  width: fit-content;
+  padding: .25em;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-weight: bold;
+  font-size: 1.15rem;
+}
+
+.add-to-watchlist-btn::before {
+  content: "";
+  background: url(images/plus.svg);
+  background-size: cover;
+  display: inline-block;
+  height: 27px;
+  width: 27px;
+  margin-right: 3px;
+  vertical-align: sub;
+}
+
+.movie-summary {
+  grid-area: summary;
+  align-self: start;
+  opacity: .75;
+  width: 100%;
+}
+
+.movie-summary-expanded {
+  display: none;
+}
+
+#read-more {
+  display: none;
+}
+
+#read-more:checked ~ 
+.movie-summary > .movie-summary-expanded {
+  display: inline;
+}
+
+#read-more:checked ~ 
+.movie-summary > .read-more-btns {
+  display: none;
+}
+
+.read-more-btns {
+  display: inline-block;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 450px) {
+  .movie-card {
+    grid-template-areas:
+    "poster title title title"
+    "poster duration genre watchlist"
+    "poster summary summary summary"
+    ;
+    grid-template-columns: auto minmax(auto, 75px) minmax(auto, 150px) 1fr;
+  }
+
+  .movie-card > * {
+    padding: .25em;
+  }
+
+  .movie-poster {
+    display: inline-block;
+    grid-area: poster;
+    padding: .25rem;
+  }
+
+  .movie-year {
+    display: block;
+  }
+
+  .add-to-watchlist-btn {
+    justify-self: start;
+  }
+}
