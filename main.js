@@ -6,20 +6,18 @@ const searchFieldEl = document.getElementById('searchForm')
 searchFieldEl.addEventListener('submit', (e) => {
   e.preventDefault()
   const searchField = document.getElementById('searchField')
-
   movieSearchApiFetch(searchField.value)
-
   movieListEl.innerHTML = ''
   searchField.value = ''
 })
 
 function movieSearchApiFetch(userInput) {
-  fetch(`http://www.omdbapi.com/?&apikey=5f1016d4&s=${userInput}`)
+  fetch(`https://www.omdbapi.com/?&apikey=5f1016d4&s=${userInput}`)
   .then(res => res.json())
   .then (data => {
     console.log(data.Search)
     data.Search.forEach(movie => {
-      fetch(`http://www.omdbapi.com/?apikey=5f1016d4&i=${movie.imdbID}`)
+      fetch(`https://www.omdbapi.com/?apikey=5f1016d4&i=${movie.imdbID}`)
       .then(res => res.json())
       .then(movie => {
         movieListEl.innerHTML += movieCardHtml(movie)
