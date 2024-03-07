@@ -197,30 +197,6 @@ main {
   width: 100%;
 }
 
-.movie-summary-expanded {
-  display: none;
-}
-
-#read-more {
-  display: none;
-}
-
-#read-more:checked ~ 
-.movie-summary > .movie-summary-expanded {
-  display: inline;
-}
-
-#read-more:checked ~ 
-.movie-summary > .read-more-btns {
-  display: none;
-}
-
-.read-more-btns {
-  display: inline-block;
-  font-weight: bold;
-  cursor: pointer;
-}
-
 /* MEDIA QUERIES */
 
 @media (min-width: 450px) {

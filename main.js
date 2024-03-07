@@ -35,15 +35,7 @@ const movieCardHtml = (movie) => {
     <p class="movie-genre">${movie.Genre}</p>
     <p class="movie-year">${movie.Year}</p>
     <button class="add-to-watchlist-btn">Watchlist</button>
-    <input type="checkbox" id="read-more">
-    <p class="movie-summary">${movie.Plot}
-      <label for="read-more" class="read-more-btns">Read more</label>
-      <span class="movie-summary-expanded">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio
-        tempora, assumenda voluptatibus ad illo suscipit?
-        <label for="read-more" clas~s="read-more-btns">Read less</label>
-      </span>
-    </p>
+    <p class="movie-summary">${movie.Plot}</p>
   </li>
   `
 
