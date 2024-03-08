@@ -16,14 +16,14 @@ body {
 
 body > * {
   width: 100%;
-  padding-inline: 3px;
+  padding-inline: 6.7px;
 }
 
 img {
   display: block;
   width: 15vw;
   min-width: 100px;
-  max-width: 200px;
+  max-width: 250px;
   border-radius: 9px;
 }
 
@@ -88,6 +88,12 @@ main {
   
 }
 
+.empty-movie-list {
+  text-align: center;
+  color: lightgray;
+  text-shadow: 0 0 1px #ABABAB;
+}
+
 .movie-card {
   position: relative;
   list-style: none;
@@ -99,16 +105,16 @@ main {
     "summary summary summary summary"
   ;
   grid-template-columns: auto minmax(auto, 75px);
-  grid-template-rows: auto ;
-  max-width: 900px;
+  grid-template-rows: auto;
+  max-width: 1200px;
   margin-inline: auto;
+  margin-bottom: 1rem;
+  padding: .25em;
   background-color: rgba(245, 245, 245, 0.9);
   background-blend-mode: lighten;
   background-size: cover;
   background-position: top;
   border-radius: 4.6px;
-  padding: .25em;
-  margin-bottom: 1rem;
 }
 
 .movie-card:not(:last-of-type)::after {
@@ -205,6 +211,11 @@ main {
     "poster title title title"
     "poster duration genre watchlist"
     "poster summary summary summary"
+    "poster summary summary summary"
+    "poster summary summary summary"
+    "poster summary summary summary"
+    "poster summary summary summary"
+    "poster summary summary summary"
     ;
     grid-template-columns: auto minmax(auto, 75px) minmax(auto, 150px) 1fr;
   }
@@ -225,5 +236,12 @@ main {
 
   .add-to-watchlist-btn {
     justify-self: start;
+  }
+}
+
+@media (max-width: 450px) {
+  .movie-card {
+    padding-inline: 1rem;
+    padding-block: .75rem;
   }
 }

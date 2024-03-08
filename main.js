@@ -3,6 +3,10 @@ import './style.css'
 const movieListEl = document.getElementById('movie-list')
 const searchFieldEl = document.getElementById('searchForm')
 
+movieListEl.innerHTML = `
+<p class="empty-movie-list">There's nothing here...</p>
+`
+
 searchFieldEl.addEventListener('submit', (e) => {
   e.preventDefault()
   const searchField = document.getElementById('searchField')
