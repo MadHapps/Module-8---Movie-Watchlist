@@ -110,11 +110,17 @@ main {
   margin-inline: auto;
   margin-bottom: 1rem;
   padding: .25em;
-  background-color: rgba(245, 245, 245, 0.85);
+  background-color: rgba(245, 245, 245, 0.875);
   background-blend-mode: lighten;
   background-size: cover;
   background-position: top;
   border-radius: 4.6px;
+}
+
+.movie-card:hover {
+  background-color: rgba(245, 245, 245, 0.675);
+  transition: .3s ease-in;
+  text-shadow: 0 0 1px #525252;
 }
 
 .movie-card:not(:last-of-type)::after {
@@ -145,9 +151,9 @@ main {
 
 .movie-rating {
   grid-area: rating;
-  font-size: 1rem;
-  margin-left: 5px;
-  vertical-align: top;
+  font-size: 1.15rem;
+  margin-left: 12px;
+  vertical-align: 10%;
 }
 
 .movie-rating::before {
@@ -155,8 +161,8 @@ main {
   background: url(images/star.svg);
   background-size: cover;
   display: inline-block;
-  height: 18px;
-  width: 18px;
+  height: 20px;
+  width: 20px;
   margin-right: 5px;
   vertical-align: -3px;
 }
@@ -201,6 +207,7 @@ main {
   align-self: start;
   opacity: .75;
   width: 100%;
+  font-weight: 600;
 }
 
 /* MEDIA QUERIES */
@@ -212,7 +219,7 @@ main {
     "poster duration genre watchlist"
     "poster summary summary summary"
     ;
-    grid-template-columns: auto minmax(auto, 75px) minmax(auto, 150px) 1fr;
+    grid-template-columns: auto minmax(auto, 75px) minmax(auto, 175px) 1fr;
   }
 
   .movie-card > * {
