@@ -105,12 +105,12 @@ main {
     "summary summary summary summary"
   ;
   grid-template-columns: auto minmax(auto, 75px);
-  grid-template-rows: auto;
+  grid-template-rows: auto auto 1fr auto;
   max-width: 1200px;
   margin-inline: auto;
   margin-bottom: 1rem;
   padding: .25em;
-  background-color: rgba(245, 245, 245, 0.9);
+  background-color: rgba(245, 245, 245, 0.85);
   background-blend-mode: lighten;
   background-size: cover;
   background-position: top;
@@ -210,11 +210,6 @@ main {
     grid-template-areas:
     "poster title title title"
     "poster duration genre watchlist"
-    "poster summary summary summary"
-    "poster summary summary summary"
-    "poster summary summary summary"
-    "poster summary summary summary"
-    "poster summary summary summary"
     "poster summary summary summary"
     ;
     grid-template-columns: auto minmax(auto, 75px) minmax(auto, 150px) 1fr;
