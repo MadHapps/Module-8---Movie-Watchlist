@@ -115,12 +115,13 @@ main {
   background-size: cover;
   background-position: top;
   border-radius: 4.6px;
+  line-height: 1.375rem;
 }
 
 .movie-card:hover {
-  background-color: rgba(245, 245, 245, 0.675);
-  transition: .3s ease-in;
-  text-shadow: 0 0 1px #525252;
+  background-color: rgba(245, 245, 245, 0.775);
+  transition: .25s ease-in;
+  text-shadow: 0 0 4px white;
 }
 
 .movie-card:not(:last-of-type)::after {
@@ -208,6 +209,27 @@ main {
   opacity: .75;
   width: 100%;
   font-weight: 600;
+}
+
+.short {
+  max-height: 70px;
+  overflow: hidden;
+}
+
+.read-more-btn {
+  border: none;
+  background: none;
+  font-weight: bold;
+  font-size: .95rem;
+  text-decoration: underline;
+}
+
+.read-more-btn:hover {
+  cursor: pointer;
+}
+
+.read-more-btn:active {
+  font-size: .9rem;
 }
 
 /* MEDIA QUERIES */
