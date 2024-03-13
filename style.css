@@ -29,7 +29,6 @@ img {
 
 a {
   text-decoration: none;
-  color:whitesmoke;
   font-weight: bold;
   cursor: pointer;
 }
@@ -51,6 +50,10 @@ header {
   background-position: 0 -40vw;
   background-repeat: no-repeat;
   color: whitesmoke;
+}
+
+header a {
+  color:whitesmoke;
 }
 
 header h1 {
@@ -88,9 +91,32 @@ main {
   
 }
 
+.empty-movie-list-btn {
+  font-weight: bold;
+  text-align: center;
+  color: black;
+}
+
+.empty-movie-list-btn::before {
+  content: "";
+  background: url(images/plus.svg);
+  background-size: cover;
+  display: inline-block;
+  height: 27px;
+  width: 27px;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+
+.movie-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .empty-movie-list {
   text-align: center;
-  color: lightgray;
+  color: rgb(172, 172, 172);
   text-shadow: 0 0 1px #ABABAB;
 }
 
@@ -180,10 +206,11 @@ main {
   display: none;
 }
 
-.add-to-watchlist-btn {
+.watchlist-btn {
   grid-area: watchlist;
   height: fit-content;
   width: fit-content;
+  justify-self: start;
   padding: .25em;
   cursor: pointer;
   border: none;
@@ -192,7 +219,7 @@ main {
   font-size: 1.15rem;
 }
 
-.add-to-watchlist-btn::before {
+.watchlist-btn::before {
   content: "";
   background: url(images/plus.svg);
   background-size: cover;
@@ -202,6 +229,32 @@ main {
   margin-right: 3px;
   vertical-align: sub;
 }
+
+.remove-btn {
+  grid-area: watchlist;
+  height: fit-content;
+  width: fit-content;
+  justify-self: start;
+  padding: .25em;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-weight: bold;
+  font-size: 1.15rem;
+}
+
+.remove-btn::before {
+  content: "";
+  background: url(images/minus.svg);
+  background-size: cover;
+  display: inline-block;
+  height: 27px;
+  width: 27px;
+  margin-right: 3px;
+  vertical-align: sub;
+}
+
+
 
 .movie-summary {
   grid-area: summary;
