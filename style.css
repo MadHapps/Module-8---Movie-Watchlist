@@ -122,6 +122,7 @@ main {
 
 .movie-card {
   position: relative;
+  width: 100%;
   list-style: none;
   padding-block: 1em;
   display: grid;
