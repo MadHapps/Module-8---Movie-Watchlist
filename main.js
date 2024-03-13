@@ -103,12 +103,17 @@ function readMore(id) {
 function addToWatchlist(id) {
   const selectedMovie = JSON.parse(sessionStorage.getItem(id))
   let watchlist = []
+  // If a savedWatchlist already exists in localStorage, save the selected
+  // movie to it
   if(localStorage.getItem('savedWatchlist')) {
     watchlist = (JSON.parse(localStorage.getItem('savedWatchlist')))
     watchlist.push(selectedMovie)
     localStorage.setItem('savedWatchlist', JSON.stringify(watchlist))
     console.log('hello1')
-  } else {
+  } 
+  // Otherwise, create the savedWatchlist in localStorage and save the
+  // selected movie to it.
+  else {
     watchlist.push(selectedMovie)
     localStorage.setItem('savedWatchlist', JSON.stringify(watchlist))
     console.log('hello2')
@@ -118,6 +123,7 @@ function addToWatchlist(id) {
 function removeFromWatchlist(id) {
   let watchlist = []
   let itemRemoved = false
+  // If a 'savedWatchlist' exists in localStorage, delete the movie with the supplied id
   if(localStorage.getItem('savedWatchlist')) {
     const selectedMovie = JSON.parse(localStorage.getItem('savedWatchlist')).filter(movie => movie.imdbID === id)[0]
     watchlist = (JSON.parse(localStorage.getItem('savedWatchlist')))
@@ -126,11 +132,14 @@ function removeFromWatchlist(id) {
     localStorage.setItem('savedWatchlist', JSON.stringify(watchlist))
     itemRemoved = true
   }
-
+  // And then, if an item was successful removed and the searchFieldEl isn't present(meaning we
+  // have to be on the Watchlist page), delete the html from the page. This creates the effect
+  // of the movie card immediately being removed when clicking the remove button, but only from
+  // the Watchlist page.
   if(itemRemoved && !searchFieldEl) {
     document.getElementById(`movie-card-${id}`).remove()
   }
-
+  // And then, if there are no movies left on the page, display the emptyMovieListHtml()
   if(document.getElementById('movie-list').childElementCount === 0) {
     emptyMovieListHtml()
   }
@@ -140,7 +149,7 @@ function emptyMovieListHtml() {
   if(searchFieldEl) {
     movieListEl.innerHTML = `
     <p class="empty-movie-list">You're watchlist is looking a little empty...</p>
-    <p class="empty-movie-list-btn">Add some movies in the above search field!</p>
+    <p class="empty-movie-list-btn">Search for movies using the search field above!</p>
   `
   } else {
     movieListEl.innerHTML = `
@@ -153,8 +162,8 @@ function emptyMovieListHtml() {
 /////// ON PAGE LOAD //////////////////
 // For index.html --
 // If there's data in sessionStorage of any length and the
-// searchFieldEl exist(used to determine which page is being viewed),
-// display the most recent search results on front page re/load
+// searchFieldEl exist(meaning we're on the front page),
+// display the most recent search results on re/load
 if(Object.keys(sessionStorage).length && searchFieldEl) {
   Object.keys(sessionStorage).forEach(movie => {
     const movieInfo = JSON.parse(sessionStorage.getItem(movie))
@@ -164,8 +173,8 @@ if(Object.keys(sessionStorage).length && searchFieldEl) {
 } 
 // For watchlist.html --
 // If there's data in localStorage named savedWatchlist and the 
-// searchFieldEl doesn't exist(used to determine which page is being viewed),
-// display data from local storage.
+// searchFieldEl doesn't exist(meaning we're on the watchList page),
+// display the saved movies from local storage.
 else if(JSON.parse(localStorage.getItem('savedWatchlist')).length > 0 && !searchFieldEl) {
   JSON.parse(localStorage.getItem('savedWatchlist')).forEach(movie => {
     movieListEl.innerHTML += movieCardHtml(movie)
