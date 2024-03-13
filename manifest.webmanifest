@@ -3,7 +3,7 @@
     "background_color": "#282828",
     "display": "standalone",
     "scope": "/",
-    "start_url": "/index.html",
+    "start_url": "/index.html/",
     "name": "My Movie Watchlist",
     "short_name": "Movie Watchlist",
     "icons": [
