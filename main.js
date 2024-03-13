@@ -145,7 +145,7 @@ function emptyMovieListHtml() {
   } else {
     movieListEl.innerHTML = `
     <p class="empty-movie-list">You're watchlist is looking a little empty...</p>
-    <a href="index.html" class="empty-movie-list-btn">Let's add some movies!</a>
+    <a href="index.html" target="_self" class="empty-movie-list-btn">Let's add some movies!</a>
     `
   }
 }
